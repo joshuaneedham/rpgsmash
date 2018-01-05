@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180104233402) do
   create_table "character_traits", force: :cascade do |t|
     t.integer "character_id"
     t.integer "trait_id"
-    t.string "designation"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -29,6 +28,7 @@ ActiveRecord::Schema.define(version: 20180104233402) do
     t.string "description"
     t.string "datatype"
     t.integer "universe_id"
+    t.integer "stat"
   end
 
   create_table "universe_users", force: :cascade do |t|
