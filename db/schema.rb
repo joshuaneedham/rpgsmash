@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180104233402) do
 
+  create_table "character_traits", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "trait_id"
+    t.string "designation"
+  end
+
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "biography"
     t.integer "universe_id"
-  end
-
-  create_table "characters_traits", force: :cascade do |t|
-    t.integer "character_id"
-    t.integer "trait_id"
-    t.string "designation"
   end
 
   create_table "traits", force: :cascade do |t|
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20180104233402) do
     t.integer "universe_id"
   end
 
+  create_table "universe_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "universe_id"
+  end
+
   create_table "universes", force: :cascade do |t|
     t.string "title"
     t.string "description"
-  end
-
-  create_table "universes_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "universe_id"
   end
 
   create_table "users", force: :cascade do |t|
