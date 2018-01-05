@@ -12,21 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20180104233402) do
 
-  create_table "attributes", force: :cascade do |t|
+  create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.string "datatype"
+    t.string "biography"
     t.integer "universe_id"
   end
 
-  create_table "attributes_characters", force: :cascade do |t|
+  create_table "characters_traits", force: :cascade do |t|
     t.integer "character_id"
     t.integer "attribute_id"
   end
 
-  create_table "characters", force: :cascade do |t|
+  create_table "traits", force: :cascade do |t|
     t.string "name"
-    t.string "biography"
+    t.string "description"
+    t.string "datatype"
     t.integer "universe_id"
   end
 
