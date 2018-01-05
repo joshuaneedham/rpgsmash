@@ -5,6 +5,7 @@ class Traits < ActiveRecord::Migration[5.1]
   		t.string :description
   		t.string :datatype
   		t.integer :universe_id
+  		t.integer :stat
   	end
   end
 end
