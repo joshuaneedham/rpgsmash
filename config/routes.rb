@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :universes
+  	resources :traits, :characters
 
 end
