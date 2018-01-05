@@ -1,0 +1,8 @@
+<ul>
+<%= render partial: './hello' %>
+</ul>
+
+<% @universes.each do |universe| %>
+  <%= universe.title %>
+  <%= universe.description %>
+<% end %>
