@@ -52,8 +52,8 @@ class UniversesController < ApplicationController
   	@user = current_user
   end
 
-  #def universe_params
-  #  params.require(:universe).permit(:title, :description)
-  #end
+  def universe_params
+    params.require(:universe).permit(:title, :description)
+  end
 end
 

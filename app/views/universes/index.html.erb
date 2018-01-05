@@ -2,7 +2,10 @@
 <%= render partial: './hello' %>
 </ul>
 
+<h2>The universes currently supported are: </h2>
 <% @universes.each do |universe| %>
-  <%= universe.title %>
-  <%= universe.description %>
-<% end %>
+  <%= universe.title %> - <%= link_to universe.title, "/universes/#{universe.id}", action: :get %><br>
+  <%= universe.description %><br>
+<% end %><br>
+<p> More universes on the way! </p>
+
