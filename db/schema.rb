@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 20180104233402) do
 
   create_table "characters_traits", force: :cascade do |t|
     t.integer "character_id"
-    t.integer "attribute_id"
+    t.integer "trait_id"
+    t.string "designation"
   end
 
   create_table "traits", force: :cascade do |t|
