@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-  resources :universes
+  resources :universes do
   	resources :traits, :characters
+  end
 
 end

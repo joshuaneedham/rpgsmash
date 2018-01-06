@@ -2,7 +2,8 @@ class TraitsController < ApplicationController
 	before_action :set_current_user
 
   def index
-  	@traits = Trait.all
+    @universe = Universe.find(params[:universe_id])
+    @traits = Universe.find(params[:universe_id]).traits
   end
 
   def show
@@ -53,7 +54,7 @@ class TraitsController < ApplicationController
   end
 
   def trait_params
-    params.require(:trait).permit(:title, :description)
+    params.require(:trait).permit(:title, :description, :datatype)
   end
 end
 

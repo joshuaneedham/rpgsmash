@@ -12,7 +12,7 @@
 <% end %>
 
 <% if @user %>
-	<%= button_to "Make new character", "universes/#{universe.id}/characters/new", action: :get %>
+	<%= link_to "Make new character", "#{@universe.id}/characters/new", action: :get %>
 <% else %>
 	<p>Log In or Sign Up to make new character; see links at top of page</p>
 <% end %><br>
@@ -26,7 +26,7 @@
 </ul>
 
 <% if @user %>
-	<%= button_to "Make new trait", "universes/#{universe.id}/traits/new", action: :get %>
+	<%= link_to "Make new trait", "#{@universe.id}/traits/new", action: :get %>
 <% else %>
 	<p>Log In or Sign Up to make new trait; see links at top of page</p>
 <% end %><br>

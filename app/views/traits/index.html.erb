@@ -1,0 +1,19 @@
+<ul>
+<%= render partial: './hello' %>
+</ul>
+
+<h1> Traits belonging to the <%= @universe.title %> universe </h1>
+
+<ul>
+<% @traits.each do |trait| %>
+	<li> <%= trait.name %></li>
+	<li> <%= trait.description %></li>
+	<li> <%= trait.datatype %></li>
+	<br>
+<% end %>
+
+<% if @user %>
+	<%= link_to "Make new trait", "/universes/#{@universe.id}/traits/new", action: :get %>
+<% else %>
+	<p>Log In or Sign Up to make new trait; see links at top of page</p>
+<% end %><br>
