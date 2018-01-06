@@ -1,0 +1,14 @@
+<h1> New/Edit Character Form </h1>
+
+
+<%= form_for :characters  do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </br>
+
+  <%= f.label :biography %>
+  <%= f.text_area :biography %>
+  </br>
+
+  <%= f.submit %>
+<% end %>

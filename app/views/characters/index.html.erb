@@ -1,0 +1,18 @@
+<ul>
+<%= render partial: './hello' %>
+</ul>
+
+<h1> Characters belonging to the <%= @universe.title %> universe </h1>
+
+<ul>
+<% @characters.each do |character| %>
+	<li> <%= character.name %></li>
+	<li> <%= character.biography %></li>
+	<br>
+<% end %>
+
+<% if @user %>
+	<%= link_to "Make new character", "/universes/#{@universe.id}/characters/new", action: :get %>
+<% else %>
+	<p>Log In or Sign Up to make new character; see links at top of page</p>
+<% end %><br>
