@@ -16,9 +16,8 @@ class TraitsController < ApplicationController
   end
 
   def create
-    binding.pry
     @trait = Trait.new(trait_params)
-
+    @trait.universe = Universe.find(params[:universe_id])
     if @trait.save
       redirect_to universe_trait_path(@trait.universe, @trait)
     else
