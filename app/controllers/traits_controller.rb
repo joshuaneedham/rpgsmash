@@ -27,15 +27,16 @@ class TraitsController < ApplicationController
 
   def edit
     @trait = Trait.find(params[:id])
+    @universe = Universe.find(params[:universe_id])
   end
 
   def update
     @trait = Trait.find(params[:id])
-
+    @trait.universe = Universe.find(params[:universe_id])
     @trait.update(trait_params)
 
     if @trait.save
-      redirect_to @trait
+      redirect_to universe_trait_path(@trait.universe, @trait)
     else
       render :edit
     end
