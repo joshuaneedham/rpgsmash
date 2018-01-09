@@ -1,4 +1,8 @@
-<h1><%= @trait.name %></h1>
+<ul>
+<%= render partial: './hello' %>
+</ul>
+
+<h3><%= @trait.name %></h3>
 <br>
 
 <p><%= @trait.description %></p>
@@ -6,4 +10,6 @@
 <p><%= @trait.datatype %></p>
 <br>
 
-<%= link_to "Edit this trait", edit_universe_trait_path %>
+<%= link_to "Edit this trait", edit_universe_trait_path %><br><br>
+
+<%= link_to "Return to homepage", "/" %>

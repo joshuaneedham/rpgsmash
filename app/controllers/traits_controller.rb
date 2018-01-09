@@ -60,7 +60,7 @@ class TraitsController < ApplicationController
   end
 
   def trait_params
-    params.require(:trait).permit(:title, :description, :datatype)
+    params.require(:trait).permit(:name, :description, :datatype)
   end
 end
 

@@ -20,7 +20,7 @@
 <h3> Characters in this universe have these traits </h3>
 <ul>
 <% @universe.traits.each do |trait| %>
-	<li><%= trait.name %></li>
+	<h3><%= trait.name %></h3>
 	<li><%= trait.description %></li>
 <% end %>
 </ul>
