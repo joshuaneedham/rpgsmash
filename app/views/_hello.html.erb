@@ -4,4 +4,5 @@
 <% else %>
 	<h3><%= button_to 'Sign In', '/users/sign_in', method: :get %></h3>
 	<h3><%= button_to 'Sign Up', '/users/sign_up', method: :get %></h3>
+	<h3><%= button_to 'Log in with Facebook!', '/auth/facebook', method: :get %></h3>
 <% end %>

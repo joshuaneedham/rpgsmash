@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   	resources :traits, :characters
   end
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
 end
