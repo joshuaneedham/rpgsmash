@@ -1,8 +1,8 @@
-<% if @user %>
+<% if @user || session[:user_id] %>
 	<h3>Welcome <%= @user.email %> !</h3>
 	<p><%= button_to 'Log Out', '/users/sign_out', method: :delete %></p>
 <% else %>
 	<h3><%= button_to 'Sign In', '/users/sign_in', method: :get %></h3>
 	<h3><%= button_to 'Sign Up', '/users/sign_up', method: :get %></h3>
-	<h3><%= button_to 'Log in with Facebook!', '/auth/facebook', method: :get %></h3>
+	<h3><%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></h3>
 <% end %>

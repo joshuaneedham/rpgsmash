@@ -49,7 +49,11 @@ class UniversesController < ApplicationController
   private
 
   def set_current_user
-  	@user = current_user
+  	if current_user
+      @user = current_user
+    else
+      @user = User.find_by_id(session[:user_id])
+    end
   end
 
   def universe_params

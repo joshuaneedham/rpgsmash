@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   get 'welcome/home'
 
   root 'welcome#home'
@@ -8,6 +7,6 @@ Rails.application.routes.draw do
   	resources :traits, :characters
   end
 
-  get '/auth/facebook/callback' => 'sessions#create'
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
 end
