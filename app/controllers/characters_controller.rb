@@ -11,14 +11,15 @@ class CharactersController < ApplicationController
   end
 
   def new
+    @universe = Universe.find(params[:universe_id])
     @character = Character.new
   end
 
   def create
     @character = Character.new(character_params)
-
+    @character.universe = Universe.find(params[:universe_id])
     if @character.save
-      redirect_to @character
+      redirect_to universe_character_path(@character.universe, @character)
     else
       render :new
     end
@@ -26,15 +27,16 @@ class CharactersController < ApplicationController
 
   def edit
     @character = Character.find(params[:id])
+    @universe = Universe.find(params[:universe_id])
   end
 
   def update
     @character = Character.find(params[:id])
-
+    @character.universe = Universe.find(params[:universe_id])
     @character.update(character_params)
 
     if @character.save
-      redirect_to @character
+      redirect_to universe_character_path(@character.universe, @character)
     else
       render :edit
     end
