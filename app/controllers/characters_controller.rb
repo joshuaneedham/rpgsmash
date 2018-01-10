@@ -18,6 +18,7 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @character.universe = Universe.find(params[:universe_id])
+    @character.construct_traits
     if @character.save
       redirect_to universe_character_path(@character.universe, @character)
     else
