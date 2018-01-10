@@ -8,19 +8,19 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @universe = Universe.find(params[:universe_id])
   end
 
   def new
     @universe = Universe.find(params[:universe_id])
     @character = Character.new
-    @character.construct_traits
-    @traits = character.traits
+    @character.construct_traits(params[:universe_id])
+    @traits = @character.traits
   end
 
   def create
     @character = Character.new(character_params)
     @character.universe = Universe.find(params[:universe_id])
-    @character.construct_traits
     if @character.save
       redirect_to universe_character_path(@character.universe, @character)
     else
@@ -59,7 +59,13 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :biography)
+    params.require(:character).permit(
+      :name, 
+      :biography,
+      traits_attributes: [
+        :stat
+      ]
+    )
   end
 end
 

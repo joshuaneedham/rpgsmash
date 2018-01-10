@@ -1,19 +1,19 @@
 <h1> New/Edit Character Form </h1>
 
 
-<%= form_for :characters  do |f| %>
+<%= form_for [universe, character]  do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  </br>
+  <br><br>
 
   <%= f.label :biography %>
   <%= f.text_area :biography %>
-  </br>
+  <br><br>
 
-  <% f.traits.each do |trait| %>
+  <% traits.each do |trait| %>
   	<%= f.fields_for :traits, trait do |trait_fields| %>
-  		<%= trait_fields.label :trait.name %>
-  		<%= trait_fields.text_field :trait.stat %>
+  		<%= trait.name %> - enter value below<br>
+  		<%= trait_fields.text_field :stat %><br><br>
   	<% end %>
   <% end %>
 
