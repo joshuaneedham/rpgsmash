@@ -10,5 +10,12 @@
   <%= f.text_area :biography %>
   </br>
 
+  <% f.traits.each do |trait| %>
+  	<%= f.fields_for :traits, trait do |trait_fields| %>
+  		<%= trait_fields.label :trait.name %>
+  		<%= trait_fields.text_field :trait.stat %>
+  	<% end %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>

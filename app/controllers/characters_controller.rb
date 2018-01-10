@@ -13,6 +13,8 @@ class CharactersController < ApplicationController
   def new
     @universe = Universe.find(params[:universe_id])
     @character = Character.new
+    @character.construct_traits
+    @traits = character.traits
   end
 
   def create
