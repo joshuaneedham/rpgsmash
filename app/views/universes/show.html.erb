@@ -8,7 +8,7 @@
 
 <h3> Characters in this universe </h3><br>
 <% @universe.characters.each do |character| %>
-	<%= character.name %> - <%= link_to character.name, characters_path(character) %><br>
+	<%= character.name %> - <%= link_to "examine this character", universe_character_path(character) %><br>
 <% end %>
 
 <% if @user %>

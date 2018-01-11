@@ -10,11 +10,15 @@
   <%= f.text_area :biography %>
   <br><br>
 
-  <% traits.each do |trait| %>
-  	<%= f.fields_for :traits, trait do |trait_fields| %>
-  		<%= trait.name %> - enter value below<br>
-  		<%= trait_fields.text_field :stat %><br><br>
-  	<% end %>
+  <% @traits.each do |trait| %>
+    <% trait.character_traits.each do |character_trait| %>
+       <% if character_trait.character_id == @character.id %>
+  	     <%= f.fields_for :character_traits, character_trait do |trait_fields| %>
+  		     <%= trait.name %> - enter value below<br>
+  		     <%= trait_fields.text_field :stat %><br><br>
+        <% end %>
+  	 <% end %>
+    <% end %>
   <% end %>
 
   <%= f.submit %>

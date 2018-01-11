@@ -6,8 +6,8 @@
 
 <h3> Character Stats </h3><br>
 
-<% @character.traits.each do |trait| %>
-	<h4><%= trait.name %></h4><br>
-	<p><%= trait.stat %></p><br>
+<% @character.character_traits.each do |character_trait| %>
+	<h4><%= character_trait.trait.name %></h4><br>
+	<p><%= character_trait.stat %></p><br>
 	<br>
 <% end %>

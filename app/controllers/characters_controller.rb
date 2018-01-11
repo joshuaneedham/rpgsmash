@@ -62,9 +62,7 @@ class CharactersController < ApplicationController
     params.require(:character).permit(
       :name, 
       :biography,
-      traits_attributes: [
-        :stat
-      ]
+      :character_traits
     )
   end
 end
