@@ -4,16 +4,20 @@
 
 <h1> Traits belonging to the <%= @universe.title %> universe </h1>
 
-<ul>
+<ol>
 <% @traits.each do |trait| %>
-	<li> <%= trait.name %></li>
-	<li> <%= trait.description %></li>
-	<li> <%= trait.datatype %></li>
+	<li><h3><%= trait.name %></h3></li>
+	<ul>
+		<li> <%= trait.description %></li>
+	</ul>
 	<br>
 <% end %>
+</ol>
 
 <% if @user %>
-	<%= link_to "Make new trait", "/universes/#{@universe.id}/traits/new", action: :get %>
+	<%= link_to "Make new trait", "/universes/#{@universe.id}/traits/new", action: :get %><br>
 <% else %>
 	<p>Log In or Sign Up to make new trait; see links at top of page</p>
 <% end %><br>
+
+<%= link_to "Return to homepage", "/" %>

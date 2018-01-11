@@ -2,14 +2,15 @@
 <%= render partial: './hello' %>
 </ul>
 
-<h3><%= @trait.name %></h3>
-<br>
+<h3>Trait Name: <%= @trait.name %></h3>
 
-<p><%= @trait.description %></p>
-<br>
-<p><%= @trait.datatype %></p>
-<br>
+<h5>Description: <%= @trait.description %></h5>
+
+<p>Statistical descriptor for trait ("string" for words, "integer" for numbers): <%= @trait.datatype %></p>
+
 
 <%= link_to "Edit this trait", edit_universe_trait_path %><br><br>
 
-<%= link_to "Return to homepage", "/" %>
+<%= link_to "Return to homepage", "/" %> <br><br>
+
+<%= link_to "Return to traits index page", universe_traits_path %>
