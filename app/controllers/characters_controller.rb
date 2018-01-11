@@ -22,7 +22,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.universe = Universe.find(params[:universe_id])
     if @character.save
-      redirect_to universe_character_path(@character.universe, @character)
+      redirect_to "/universes/#{params[:universe_id]}/characters/#{@character.id}"
     else
       render :new
     end
@@ -62,7 +62,9 @@ class CharactersController < ApplicationController
     params.require(:character).permit(
       :name, 
       :biography,
-      :character_traits
+      character_traits_attributes: [
+        :stat
+      ]
     )
   end
 end
