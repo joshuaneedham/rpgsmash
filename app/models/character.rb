@@ -7,13 +7,18 @@ class Character < ApplicationRecord
 		self.universe = Universe.find_by_id(universe_id)
 		self.universe.traits.each do |trait|
 			self.traits << trait
-			trait.character_traits << CharacterTrait.create(:character_id => self.id, :trait_id => trait.id) 
+		end
+	end
+
+	def construct_character_traits
+		self.traits.each do |trait|
+			trait.character_traits << CharacterTrait.create(:trait_id => trait.id, :character_id => self.id)
 		end
 	end
 
 	def character_traits_attributes=(character_traits_attributes)
 		character_traits_attributes.each do |i, character_trait_attributes|
-			self.character_traits.build(character_trait_attributes)
+			self.character_traits.update(character_trait_attributes)
 		end
 	end
 

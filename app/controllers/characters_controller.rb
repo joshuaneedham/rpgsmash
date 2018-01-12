@@ -14,15 +14,13 @@ class CharactersController < ApplicationController
   def new
     @universe = Universe.find(params[:universe_id])
     @character = Character.new
-    @character.construct_traits(params[:universe_id])
-    @traits = @character.traits
   end
 
   def create
     @character = Character.new(character_params)
     @character.universe = Universe.find(params[:universe_id])
     if @character.save
-      redirect_to "/universes/#{params[:universe_id]}/characters/#{@character.id}"
+      redirect_to "/universes/#{params[:universe_id]}/characters/#{@character.id}/edit"
     else
       render :new
     end
@@ -31,9 +29,18 @@ class CharactersController < ApplicationController
   def edit
     @character = Character.find(params[:id])
     @universe = Universe.find(params[:universe_id])
+     if @character.traits.empty?
+        @character.construct_traits(params[:universe_id])
+     end
+    @traits = @character.traits
+    if @character.character_traits.empty?
+       @character.construct_character_traits
+    end
+    @character_traits = @character.character_traits
   end
 
   def update
+    binding.pry
     @character = Character.find(params[:id])
     @character.universe = Universe.find(params[:universe_id])
     @character.update(character_params)
@@ -63,7 +70,8 @@ class CharactersController < ApplicationController
       :name, 
       :biography,
       character_traits_attributes: [
-        :stat
+        :stat,
+        :id
       ]
     )
   end
