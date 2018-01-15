@@ -40,7 +40,6 @@ class CharactersController < ApplicationController
   end
 
   def update
-    binding.pry
     @character = Character.find(params[:id])
     @character.universe = Universe.find(params[:universe_id])
     @character.update(character_params)

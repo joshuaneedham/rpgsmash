@@ -18,7 +18,7 @@ class Character < ApplicationRecord
 
 	def character_traits_attributes=(character_traits_attributes)
 		character_traits_attributes.each do |i, character_trait_attributes|
-			self.character_traits.update(character_trait_attributes)
+			CharacterTrait.update(character_trait_attributes["id"], :stat => character_trait_attributes["stat"])
 		end
 	end
 
