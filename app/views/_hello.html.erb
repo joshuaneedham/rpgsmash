@@ -1,5 +1,6 @@
 <% if @user || session[:user_id] %>
 	<h3>Welcome <%= @user.email %> !</h3>
+	<%= link_to "Back to homepage", "/" %>
 	<p><%= button_to 'Log Out', '/users/sign_out', method: :delete %></p>
 <% else %>
 	<h3><%= button_to 'Sign In', '/users/sign_in', method: :get %></h3>

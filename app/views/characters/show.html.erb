@@ -1,13 +1,22 @@
-<h1><%= @character.name %> character descriptors and stats </h1><br>
+<ul>
+<%= render partial: './hello' %>
+</ul>
+
+
+<h1><%= @character.name %> character descriptors and stats </h1>
+
+<%= link_to "Edit Character", "/universes/#{params[:universe_id]}/characters/#{@character.id}/edit" %><br><br>
+
+<%= link_to "Return to universe homepage", "/universes/#{params[:universe_id]}" %>
 
 <h3>Biography: <%= @character.biography %></h3>
 
 <p>Belongs to the <%= @universe.title %> universe</p>
 
-<h3> Character Stats </h3><br>
+<h3> Character Stats </h3>
 
 <% @character.character_traits.each do |character_trait| %>
-	<h4><%= character_trait.trait.name %></h4><br>
-	<p><%= character_trait.stat %></p><br>
-	<br>
+	<h4><%= character_trait.trait.name %></h4>
+	<p><%= character_trait.stat %></p>
+	
 <% end %>
