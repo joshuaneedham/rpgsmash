@@ -2,6 +2,7 @@ class Character < ApplicationRecord
 	belongs_to :universe
 	has_many :character_traits
 	has_many :traits, through: :character_traits
+	validates :name, presence: true
 
 	def construct_traits(universe_id)
 		self.universe = Universe.find_by_id(universe_id)

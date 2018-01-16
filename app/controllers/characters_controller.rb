@@ -18,8 +18,9 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
-    @character.universe = Universe.find(params[:universe_id])
-    if @character.save
+    @universe = Universe.find(params[:universe_id])
+    @character.universe = @universe
+    if @character.valid? && @character.save
       redirect_to "/universes/#{params[:universe_id]}/characters/#{@character.id}/edit"
     else
       render :new
