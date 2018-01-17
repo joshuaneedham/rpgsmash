@@ -22,6 +22,9 @@
 <% @universe.traits.each do |trait| %>
 	<h3><%= trait.name %></h3>
 	<li><%= trait.description %></li>
+		<% if trait.datatype == "integer" || trait.datatype == "Integer" %>
+			<li><%= Trait.min_and_max_character_traits(trait.id) %></li>
+		<% end %>
 <% end %>
 </ul>
 

@@ -1,4 +1,4 @@
-<% if @user || session[:user_id] %>
+<% if @user %>
 	<h3>Welcome <%= @user.email %> !</h3>
 	<%= link_to "Back to homepage", "/" %>
 	<p><%= button_to 'Log Out', '/users/sign_out', method: :delete %></p>
