@@ -9,7 +9,7 @@
 <% end %><br>
 <p> More universes on the way! </p>
 
-<% if @user.admin %>
+<% if can? :create, @universe %>
 	<%= link_to "Create new universe", "/universes/new", action: :get %>
 <% end %>
 

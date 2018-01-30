@@ -14,7 +14,9 @@ class UniversesController < ApplicationController
   end
 
   def create
-    @universe = Universe.new(universe_params)
+    if can? :create, @universe
+      @universe = Universe.new(universe_params)
+    end
 
     if @universe.save
       redirect_to @universe
@@ -30,7 +32,9 @@ class UniversesController < ApplicationController
   def update
     @universe = Universe.find(params[:id])
 
-    @universe.update(universe_params)
+    if can? :update, @universe
+      @universe.update(universe_params)
+    end
 
     if @universe.save
       redirect_to @universe
