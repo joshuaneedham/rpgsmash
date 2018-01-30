@@ -6,6 +6,10 @@
 
 <h3> Description: <%= @universe.description %> </h3>
 
+<% if @user.admin %>
+	<%= link_to "Edit this universe", "/universes/#{@universe.id}/edit" %>
+<% end %>
+
 <h3> Characters in this universe </h3><br>
 <% @universe.characters.each do |character| %>
 	<%= character.name %> - <%= link_to "examine this character", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
