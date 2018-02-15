@@ -9,6 +9,7 @@ class CharactersController < ApplicationController
   def show
     @character = Character.find(params[:id])
     @universe = Universe.find(params[:universe_id])
+    render json: @character
   end
 
   def new
