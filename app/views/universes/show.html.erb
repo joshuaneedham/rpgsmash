@@ -14,13 +14,13 @@
 <% @universe.characters.each do |character| %>
 	<%= character.name %> - <%= link_to "Visit this character's show page", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
 	  <div id="character-<%= character.id %>"><%= truncate(character.biography) %></div>
-  	  <button class="char-more" data-id="<%= character.id %>">More Info</button>
+  	  <button class="char-more" data-id="<%= character.id %>">More Info</button><br><br>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-$(function() {
-	$(".char-more").on("click", charInfo())
-});
+	$(".char-more").click(function () {
+		alert("I was clicked!");
+	});
 </script> 
 
 <% if @user %>
