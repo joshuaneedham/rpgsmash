@@ -1,3 +1,14 @@
+$(document).ready(function(){
+   attachEventListeners()
+})
+
+function attachEventListeners() {
+    debugger
+   $('.char-more').click(function(){
+    console.log('more button clicked')
+  }) 
+}
+
 
 function charInfo () {
   alert("I have been clicked!");

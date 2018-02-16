@@ -17,11 +17,7 @@
   	  <button class="char-more" data-id="<%= character.id %>">More Info</button><br><br>
 <% end %>
 
-<script type="text/javascript" charset="utf-8">
-	$(".char-more").click(function () {
-		alert("I was clicked!");
-	});
-</script> 
+
 
 <% if @user %>
 	<%= link_to "Make new character", "#{@universe.id}/characters/new", action: :get %>
