@@ -1,24 +1,18 @@
 function charInfo () {
-  
+      var id = $(this).data("id");
+    $.get("/characters/" + id + ".json", function(data) {
+      var character = data;
+
+      var biographyText = "<p>" + character["biography"] + "</p>"
+      $("#character-" + id).html(biographyText);
+      var characterTraits = character["character_traits"];
+      var charTraitList = "";
+      characterTraits.forEach(function(charTrait) {
+        charTraitList += '<li class="js-chartrait" data-id="' + charTrait["id"] + '">' + charTrait["trait_id"] + ' - ' 
+        + charTrait["stat"] + '</li>';
+      });
+      $("#character-" + id + "-characterTraits").html(charTraitList);
+    });
 }
 
-$(function() {
-  $(".js-more").on("click", function() {
-    var id = $(this).data("id");
-    $.get("/products/" + id + ".json", function(data) {
-      var product = data;
-      var inventoryText = "<strong>Available</strong>";
-      if(product["inventory"] === 0){
-        inventoryText = "<strong>Sold Out</strong>";
-      }
-      var descriptionText = "<p>" + product["description"] + "</p><p>" + inventoryText + "</p>";
-      $("#product-" + id).html(descriptionText);
-      var orders = product["orders"];
-      var orderList = "";
-      orders.forEach(function(order) {
-        orderList += '<li class="js-order" data-id="' + order["id"] + '">' + order["id"] + ' - ' + order["created_at"] + '</li>';
-      });
-      $("#product-" + id + "-orders").html(orderList);
-    });
-  });
-});
+

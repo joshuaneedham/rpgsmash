@@ -18,7 +18,9 @@
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-// javascript function call here
+$(function() {
+	$(".char-more").on("click", charInfo())
+});
 </script> 
 
 <% if @user %>
