@@ -12,8 +12,14 @@
 
 <h3> Characters in this universe </h3><br>
 <% @universe.characters.each do |character| %>
-	<%= character.name %> - <%= link_to "examine this character", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
+	<%= character.name %> - <%= link_to "Visit this character's show page", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
+	  <div id="character-<%= character.id %>"><%= truncate(character.biography) %></div>
+  	  <button class="char-more" data-id="<%= character.id %>">More Info</button>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+// javascript function call here
+</script> 
 
 <% if @user %>
 	<%= link_to "Make new character", "#{@universe.id}/characters/new", action: :get %>
