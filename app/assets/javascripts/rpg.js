@@ -3,16 +3,12 @@ $(document).ready(function(){
 })
 
 function attachEventListeners() {
-    debugger
-   $('.char-more').click(function(){
-    console.log('more button clicked')
-  }) 
-}
-
+   $('.char-more').click(charInfo()
+  )}
 
 function charInfo () {
-  alert("I have been clicked!");
-}
+  alert('I was clicked!')
+} 
 
 //function charInfo () {
 //      var id = $(this).data("id");
