@@ -3,10 +3,11 @@ $(document).ready(function(){
 })
 
 function attachEventListeners() {
-   $('.char-more').click(charInfo()
-  )}
+   $('.char-more').on('click', () => charInfo().bind(this))
+  }
 
 function charInfo () {
+  debugger;
   alert('I was clicked!')
 } 
 
