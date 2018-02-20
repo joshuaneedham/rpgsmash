@@ -25,11 +25,18 @@
 	<%= link_to "Make new character", "#{@universe.id}/characters/new", action: :get %>
 <% else %>
 	<p>Log In or Sign Up to make new character; see links at top of page</p>
-<% end %><br>
+<% end %>
 
-<h3> Characters in this universe </h3><br><br>
+<h3> Traits in this universe </h3>
 <button class="univTraits">Click to see Traits</button><br>
-<div id="universeTraits"></div>
+<div id="universeTraits">
+<br>	
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
 
 
 <% if @user && @universe.characters.empty? %>

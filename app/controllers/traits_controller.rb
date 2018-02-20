@@ -56,11 +56,7 @@ class TraitsController < ApplicationController
   private
 
   def set_current_user
-    if current_user
-  	  @user = current_user
-    else
-      @user = User.find(:id => params[:user_id])
-    end
+  	@user = current_user if current_user
   end
 
   def trait_params

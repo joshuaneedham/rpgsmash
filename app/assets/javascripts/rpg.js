@@ -9,7 +9,11 @@ const attachEventListeners = function() {
    	charButtonID = this.id
    	charInfo();
    })
+   $('.univTraits').click(function () {
+   	traitsInfo();
+   })
 }
+
 function charInfo () {
   $.get("/universes/1" + "/characters/" + charButtonID + ".json", function(data) {
   	var character = data;
@@ -24,4 +28,15 @@ function charInfo () {
     }
     $("#character-" + charButtonID + "-stats").html(charTraitList);
   })
+}
+
+function traitsInfo () {
+	$.get("/universes/1/traits.json", function(data) {
+		var traits = data;
+		var traitsList = "";
+		traits.forEach(function(trait) {
+			traitsList += '<h3>' + trait["name"] + '</h3>'
+		})
+		$('#universeTraits').html(traitsList);
+	})
 } 

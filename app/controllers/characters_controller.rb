@@ -67,7 +67,7 @@ class CharactersController < ApplicationController
   private
 
   def set_current_user
-  	@user = current_user
+  	@user = current_user if current_user
   end
 
   def character_params
