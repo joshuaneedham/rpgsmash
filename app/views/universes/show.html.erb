@@ -27,7 +27,16 @@
 	<p>Log In or Sign Up to make new character; see links at top of page</p>
 <% end %><br>
 
-<h3> Characters in this universe have these traits </h3>
+<h3> Characters in this universe </h3><br><br>
+<button class="univTraits">Click to see Traits</button><br>
+<div id="universeTraits"></div>
+
+
+<% if @user && @universe.characters.empty? %>
+	<%= link_to "Make new trait", "#{@universe.id}/traits/new", action: :get %>
+<% end %>
+
+<!-- old code 
 <ul>
 <% @universe.traits.each do |trait| %>
 	<h3><%= trait.name %></h3>
@@ -36,8 +45,4 @@
 			<li><%= Trait.min_and_max_character_traits(trait.id) %></li>
 		<% end %>
 <% end %>
-</ul>
-
-<% if @user && @universe.characters.empty? %>
-	<%= link_to "Make new trait", "#{@universe.id}/traits/new", action: :get %>
-<% end %>
+</ul> -->

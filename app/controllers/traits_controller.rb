@@ -4,6 +4,10 @@ class TraitsController < ApplicationController
   def index
     @universe = Universe.find(params[:universe_id])
     @traits = Universe.find(params[:universe_id]).traits
+    respond_to do |f|
+      f.html
+      f.json {render json: @traits}
+    end
   end
 
   def show
