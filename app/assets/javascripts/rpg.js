@@ -2,13 +2,28 @@ $(document).ready(function(){
    attachEventListeners()
 })
 
+var charButtonID;
+
 const attachEventListeners = function() {
    $('.char-more').click(function () {
-   	
+   	charButtonID = this.id
+   	charInfo();
    })
 }
 function charInfo () {
-  console.log(this)
+  $.get("/universes/1" + "/characters/" + charButtonID + ".json", function(data) {
+  	var character = data;
+  	var biographyText = "<p>" + character["biography"] + "</p>"
+  	$("#character-" + charButtonID).html(biographyText);
+ 	$("#character-" + charButtonID).html(biographyText);
+    var characterTraits = character["character_traits"];
+    var charTraitList = "";
+    characterTraits.forEach(function(charTrait) {
+      charTraitList += '<li class="js-chartrait" data-id="' + charTrait["id"] + '">' + charTrait["trait_id"] + ' - ' 
+      + charTrait["stat"] + '</li>';
+    });
+    $("#character-" + charButtonID + "-characterTraits").html(charTraitList);
+  })
 } 
 
 //function charInfo () {

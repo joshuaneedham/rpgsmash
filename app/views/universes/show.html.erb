@@ -14,7 +14,7 @@
 <% @universe.characters.each do |character| %>
 	<%= character.name %> - <%= link_to "Visit this character's show page", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
 	  <div id="character-<%= character.id %>"><%= truncate(character.biography) %></div>
-  	  <button class="char-more" data-id="<%= character.id %>">More Info</button><br><br>
+  	  <button class="char-more" id="<%= character.id %>">More Info</button><br><br>
 <% end %>
 
 
