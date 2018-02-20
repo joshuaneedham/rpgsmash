@@ -35,7 +35,8 @@ function traitsInfo () {
 		var traits = data;
 		var traitsList = "";
 		traits.forEach(function(trait) {
-			traitsList += '<h3>' + trait["name"] + '</h3>'
+			traitsList += '<h4>' + trait["name"] + '</h4>' + '<p>' + trait["description"] + '</p>' +
+			'<p>' + "Datatype: " + trait["datatype"] + '</p>'
 		})
 		$('#universeTraits').html(traitsList);
 	})

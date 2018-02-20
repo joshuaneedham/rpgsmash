@@ -16,4 +16,8 @@ class Trait < ApplicationRecord
 			"This trait is not an integer datatype and thus does not support this method."
 		end
 	end
+
+	def min_and_max_character_trait
+		Trait.min_and_max_character_traits(self.id)
+	end
 end
