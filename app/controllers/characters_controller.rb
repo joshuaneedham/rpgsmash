@@ -4,6 +4,10 @@ class CharactersController < ApplicationController
   def index
     @universe = Universe.find(params[:universe_id])
     @characters = Universe.find(params[:universe_id]).characters
+      respond_to do |f|
+        f.html
+        f.json {render json: @characters}
+      end
   end
 
   def show

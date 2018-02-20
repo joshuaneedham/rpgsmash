@@ -2,13 +2,13 @@ $(document).ready(function(){
    attachEventListeners()
 })
 
-function attachEventListeners() {
-   $('.char-more').on('click', () => charInfo().bind(this))
-  }
-
+const attachEventListeners = function() {
+   $('.char-more').click(function () {
+   	
+   })
+}
 function charInfo () {
-  debugger;
-  alert('I was clicked!')
+  console.log(this)
 } 
 
 //function charInfo () {
