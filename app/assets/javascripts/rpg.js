@@ -15,14 +15,14 @@ function charInfo () {
   	var character = data;
   	var biographyText = "<p>" + character["biography"] + "</p>"
   	$("#character-" + charButtonID).html(biographyText);
- 	$("#character-" + charButtonID).html(biographyText);
+  	var charTraits = character["traits"]
     var characterTraits = character["character_traits"];
     var charTraitList = "";
-    characterTraits.forEach(function(charTrait) {
-      charTraitList += '<li class="js-chartrait" data-id="' + charTrait["id"] + '">' + charTrait["trait_id"] + ' - ' 
-      + charTrait["stat"] + '</li>';
-    });
-    $("#character-" + charButtonID + "-characterTraits").html(charTraitList);
+    for (let i = 0; i < charTraits.length; i++) {
+    	charTraitList += '<li class="js-chartrait" data-id="' + charTraits[i]["id"] + '">' + charTraits[i]["name"] + ' - ' + 
+    	characterTraits[i]["stat"] + '</li>';
+    }
+    $("#character-" + charButtonID + "-stats").html(charTraitList);
   })
 } 
 

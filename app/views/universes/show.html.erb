@@ -12,9 +12,11 @@
 
 <h3> Characters in this universe </h3><br>
 <% @universe.characters.each do |character| %>
-	<%= character.name %> - <%= link_to "Visit this character's show page", "/universes/#{@universe.id}/characters/#{character.id}" %><br>
-	  <div id="character-<%= character.id %>"><%= truncate(character.biography) %></div>
-  	  <button class="char-more" id="<%= character.id %>">More Info</button><br><br>
+	<%= character.name %> - <%= link_to "Visit this character's show page", "/universes/#{@universe.id}/characters/#{character.id}" %><br><br>
+	  <button class="char-more" id="<%= character.id %>">More Info</button><br><br>
+	  <div id="character-<%= character.id %>"><%= truncate(character.biography) %></div><br>
+	  <div id="character-<%= character.id %>-stats"></div><br>
+  	  
 <% end %>
 
 
