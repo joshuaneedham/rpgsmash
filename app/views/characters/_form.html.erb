@@ -2,22 +2,30 @@
 
 
 <%= form_for [universe, character]  do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
   <br><br>
 
-  <%= f.label :biography %>
-  <%= f.text_area :biography %>
+  <div class="field">
+    <%= f.label :biography %>
+    <%= f.text_area :biography %>
+  </div>
   <br><br>
 
   <% if @character.id && @character.character_traits.size == @character.universe.traits.size %>
     <% @character_traits.each do |character_trait| %>
   	  <%= f.fields_for :character_traits, character_trait do |trait_fields| %>
-  		     <%= character_trait.trait.name %> - enter value below<br>
-  		     <%= trait_fields.text_field :stat %><br><br>
+           <div class="field">
+    		     <%= character_trait.trait.name %> - enter value below<br>
+    		     <%= trait_fields.text_field :stat %><br><br>
+           </div>
       <% end %>
   	<% end %>
   <% end %>
 
-  <%= f.submit %>
+  <div class="fSubmit">
+    <%= f.submit %>
+  </div>
 <% end %>
