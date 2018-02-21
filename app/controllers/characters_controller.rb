@@ -25,10 +25,9 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @universe = Universe.find(params[:universe_id])
     @character.universe = @universe
-    if @character.valid? && @character.save
-      redirect_to "/universes/#{params[:universe_id]}/characters/#{@character.id}/edit"
-    else
-      render :new
+    respond_to do |f|
+      f.html
+      f.json {render json: @character, status: 201}
     end
   end
 
