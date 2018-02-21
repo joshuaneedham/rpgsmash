@@ -14,7 +14,11 @@ const attachEventListeners = function() {
    })
    $('.fSubmit').click(function (event) {
    	event.preventDefault();
-   	alert("I was clicked!");
+   	var values = $(this).serialize();
+   	var posting = $.post('/universes/1/characters', values);
+   	posting.done(function(data) {
+   		
+   	})
    })
 }
 
