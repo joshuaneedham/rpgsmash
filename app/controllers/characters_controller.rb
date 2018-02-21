@@ -23,8 +23,8 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
-    @universe = Universe.find(params[:universe_id])
-    @character.universe = @universe
+    @character.universe = Universe.find(params[:universe_id])
+    @character.save if @character.valid?
     respond_to do |f|
       f.html
       f.json {render json: @character, status: 201}

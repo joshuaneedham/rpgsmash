@@ -12,7 +12,7 @@ const attachEventListeners = function() {
    $('.univTraits').click(function () {
    	traitsInfo();
    })
-   $('.fSubmit').click(function (event) {
+   $('form').submit(function (event) {
    	event.preventDefault();
    	var values = $(this).serialize();
    	var posting = $.post('/universes/1/characters', values);
