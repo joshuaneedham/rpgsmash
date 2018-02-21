@@ -12,6 +12,10 @@ const attachEventListeners = function() {
    $('.univTraits').click(function () {
    	traitsInfo();
    })
+   $('.fSubmit').click(function (event) {
+   	event.preventDefault();
+   	alert("I was clicked!");
+   })
 }
 
 function charInfo () {
