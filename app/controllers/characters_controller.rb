@@ -25,10 +25,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
     @character.universe = Universe.find(params[:universe_id])
     @character.save if @character.valid?
-    respond_to do |f|
-      f.html
-      f.json {render json: @character, status: 201}
-    end
+    render json: @character, status: 201
   end
 
   def edit

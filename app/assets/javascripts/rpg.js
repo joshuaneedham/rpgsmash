@@ -17,6 +17,7 @@ const attachEventListeners = function() {
    	var values = $(this).serialize();
    	var posting = $.post('/universes/1/characters', values);
    	posting.done(function(data) {
+   		console.log(data)
    		var character = data;
    		$("#charName").text(character["name"]);
    		$("#charBio").text(character["biography"]);
