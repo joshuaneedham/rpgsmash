@@ -12,15 +12,14 @@ const attachEventListeners = function() {
    $('.univTraits').click(function () {
    	traitsInfo();
    })
-   $('form').submit(function (event) {
+   $('#new_character').submit(function (event) {
    	event.preventDefault();
    	var values = $(this).serialize();
    	var posting = $.post('/universes/1/characters', values);
    	posting.done(function(data) {
-   		console.log(data)
    		var character = data;
-   		$("#charName").text(character["name"]);
-   		$("#charBio").text(character["biography"]);
+   		$("#charName").text(`Name: ${character["name"]}`);
+   		$("#charBio").text(`Biography: ${character["biography"]}`);
    	})
    })
 }
