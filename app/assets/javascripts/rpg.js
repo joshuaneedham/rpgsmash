@@ -51,3 +51,26 @@ function traitsInfo () {
 		$('#universeTraits').html(traitsList);
 	})
 } 
+
+function Character(character) {
+	this.id = character.id
+	this.name = character.name
+	this.biography = character.biography
+}
+
+Character.prototype.formatIndex = function () {
+	//refactor
+	//  let postHtml = `
+    //<a href="/posts/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.title}</h1></a>
+  //`
+  //return postHtml
+}
+
+Character.prototype.formatShow = function () {
+	//refactor
+	 // let postHtml = `
+	 //   <h3>${this.title}</h3>
+	 //   <button class="next-post">Next</button>
+	 // `
+	 // return postHtml
+}
