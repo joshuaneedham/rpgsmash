@@ -42,26 +42,30 @@ function charInfo () {
 
 const traitsInfo = () => {
 	fetch(`/universes/1/traits.json`)
+	.then(result => result.json())
+	.then(traits => {
+		$('#universeTraits').html('')
+		traits.forEach(trait => {
+			let newTrait = new Trait(trait)
 
-function Character(character) {
-	this.id = character.id
-	this.name = character.name
-	this.biography = character.biography
+			let traitHtml = newTrait.formatIndex()
+
+			$('#universeTraits').append(traitHtml)
+		})
+	})
 }
 
-Character.prototype.formatIndex = function () {
+function Trait(trait) {
+	this.id = trait.id
+	this.name = trait.name
+	this.description = trait.description
+	this.datatype = trait.datatype
+}
+
+Trait.prototype.formatIndex = function () {
 	//refactor
 	//  let postHtml = `
     //<a href="/posts/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.title}</h1></a>
   //`
   //return postHtml
-}
-
-Character.prototype.formatShow = function () {
-	//refactor
-	 // let postHtml = `
-	 //   <h3>${this.title}</h3>
-	 //   <button class="next-post">Next</button>
-	 // `
-	 // return postHtml
 }
