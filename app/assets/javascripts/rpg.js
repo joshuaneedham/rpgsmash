@@ -40,17 +40,8 @@ function charInfo () {
   })
 }
 
-function traitsInfo () {
-	$.get("/universes/1/traits.json", function(data) {
-		var traits = data;
-		var traitsList = "";
-		traits.forEach(function(trait) {
-			traitsList += '<h4>' + trait["name"] + '</h4>' + '<p>' + trait["description"] + '</p>' +
-			'<p>' + "Datatype: " + trait["datatype"] + '</p>'
-		})
-		$('#universeTraits').html(traitsList);
-	})
-} 
+const traitsInfo = () => {
+	fetch(`/universes/1/traits.json`)
 
 function Character(character) {
 	this.id = character.id
