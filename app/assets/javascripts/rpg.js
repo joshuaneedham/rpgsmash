@@ -64,8 +64,7 @@ function Trait(trait) {
 
 Trait.prototype.formatIndex = function () {
 	  let traitHtml = `
-    <a href="universes/1/traits/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
-    <h1> ${this.name} </h1>
+    <a href="/universes/1/traits/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
     <p> Description: ${this.description} </p>
     <p> Datatype: ${this.datatype} </p>
   `
