@@ -5,7 +5,7 @@ $(document).ready(function(){
 var charButtonID;
 
 const attachEventListeners = function() {
-   $('.char-more').click(function () { //req 2
+   $('.char-more').click(function () { //requirement 2 more button renders show page resource. 
    	charButtonID = this.id
    	charInfo();
    })
@@ -33,7 +33,7 @@ function charInfo () {
   	var charTraits = character["traits"]
     var characterTraits = character["character_traits"];
     var charTraitList = "";
-    for (let i = 0; i < charTraits.length; i++) {
+    for (let i = 0; i < charTraits.length; i++) { //req 3 characters have many traits; through character_traits
     	charTraitList += '<li class="js-chartrait" data-id="' + charTraits[i]["id"] + '">' + charTraits[i]["name"] + ' - ' + 
     	characterTraits[i]["stat"] + '</li>';
     }
