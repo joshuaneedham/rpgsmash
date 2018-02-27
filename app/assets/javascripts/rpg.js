@@ -63,9 +63,11 @@ function Trait(trait) {
 }
 
 Trait.prototype.formatIndex = function () {
-	//refactor
-	//  let postHtml = `
-    //<a href="/posts/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.title}</h1></a>
-  //`
-  //return postHtml
+	  let traitHtml = `
+    <a href="universes/1/traits/${this.id}" data-id="${this.id}" class="show_link"><h1>${this.name}</h1></a>
+    <h1> ${this.name} </h1>
+    <p> Description: ${this.description} </p>
+    <p> Datatype: ${this.datatype} </p>
+  `
+  return traitHtml
 }
