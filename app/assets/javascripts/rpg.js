@@ -5,13 +5,14 @@ $(document).ready(function(){
 var charButtonID;
 
 const attachEventListeners = function() {
-   $('.char-more').click(function () {
+   $('.char-more').click(function () { //req 2
    	charButtonID = this.id
    	charInfo();
    })
    $('.univTraits').click(function () {
-   	traitsInfo();
+   	traitsInfo(); //req 1
    })
+   // requirement 4: creates new character without a page refresh
    $('#new_character').submit(function (event) {
    	event.preventDefault();
    	var values = $(this).serialize();
@@ -40,6 +41,7 @@ function charInfo () {
   })
 }
 
+//requirement 1: renders index page of traits via JQuery and serialization
 const traitsInfo = () => {
 	fetch(`/universes/1/traits.json`)
 	.then(result => result.json())
@@ -55,7 +57,9 @@ const traitsInfo = () => {
 	})
 }
 
-function Trait(trait) {
+//requirement 5: translate JSON response into JavaScript Model Objects. 
+
+function Trait(trait) { 
 	this.id = trait.id
 	this.name = trait.name
 	this.description = trait.description
