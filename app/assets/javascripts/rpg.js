@@ -2,12 +2,9 @@ $(document).ready(function(){
    attachEventListeners()
 })
 
-var charButtonID;
-
 const attachEventListeners = function() {
    $('.char-more').click(function () { //requirement 2 more button renders show page resource. 
-   	charButtonID = this.id
-   	charInfo();
+   	charInfo(this.id);
    })
    $('.univTraits').click(function () {
    	traitsInfo(); //req 1
@@ -25,19 +22,21 @@ const attachEventListeners = function() {
    })
 }
 
-function charInfo () {
-  $.get("/universes/1" + "/characters/" + charButtonID + ".json", function(data) {
+function charInfo (charID) {
+  $.get("/universes/1" + "/characters/" + charID + ".json", function(data) {
   	var character = data;
   	var biographyText = "<p>" + character["biography"] + "</p>"
-  	$("#character-" + charButtonID).html(biographyText);
+  	$("#character-" + charID).html(biographyText);
   	var charTraits = character["traits"]
     var characterTraits = character["character_traits"];
     var charTraitList = "";
-    for (let i = 0; i < charTraits.length; i++) { //req 3 characters have many traits; through character_traits
-    	charTraitList += '<li class="js-chartrait" data-id="' + charTraits[i]["id"] + '">' + charTraits[i]["name"] + ' - ' + 
-    	characterTraits[i]["stat"] + '</li>';
-    }
-    $("#character-" + charButtonID + "-stats").html(charTraitList);
+    //forEach(index)
+    charTraits.forEach((el, i) => {charTraitList += `<li class="js-chartrait" data-id="${el["id"]}"> ${el["name"]}
+    		${characterTraits[i]["stat"]} </li>`})
+    //for (let i = 0; i < charTraits.length; i++) { //req 3 characters have many traits; through character_traits
+    	//charTraitList += '<li class="js-chartrait" data-id="' + charTraits[i]["id"] + '">' + charTraits[i]["name"] + ' - ' + 
+    	//characterTraits[i]["stat"] + '</li>';}
+    $("#character-" + charID + "-stats").html(charTraitList);
   })
 }
 
